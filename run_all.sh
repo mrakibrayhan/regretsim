@@ -8,4 +8,6 @@ python3 experiments/04_regret.py
 python3 experiments/05_drift_and_sensitivity.py prices
 python3 experiments/05_drift_and_sensitivity.py sens
 python3 experiments/05_drift_and_sensitivity.py drift
+python3 experiments/07_powercap.py
+python3 experiments/08_variance.py
 python3 experiments/06_figures.py

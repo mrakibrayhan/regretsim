@@ -185,9 +185,11 @@ H200 = Chip("H200-like", 1979, "HBM3e", 6, link="fast", bw_override=4.8e12, cap_
 B200 = Chip("B200-like", 4500, "HBM3e", 8, link="fast", bw_override=8.0e12, cap_override=192e9)
 
 
-def design_space():
-    """The chip design space explored in this study."""
-    tfs = [500, 1000, 2000, 3000, 4500, 6000]
+def design_space(tfs=(500, 1000, 2000, 3000, 4500, 6000), cap_w=None):
+    """The chip design space explored in this study (main study: default
+    arguments).  experiments/07 widens it with higher compute tiers under a
+    looser package power cap."""
+    cap_w = TDP_CAP_W if cap_w is None else cap_w
     mems = []
     for s in (2, 4, 6, 8):
         mems.append(("HBM3e", s, False))
@@ -202,6 +204,6 @@ def design_space():
             for ln in ("fast", "slow"):
                 nm = f"{tf}TF-{u}{m}{'cs' if cs else ''}-{ln}"
                 c = Chip(nm, tf, m, u, cs, ln)
-                if c.tdp <= TDP_CAP_W:
+                if c.tdp <= cap_w:
                     out.append(c)
     return out

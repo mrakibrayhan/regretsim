@@ -1,396 +1,297 @@
 {
- "gamma": 1.4,
- "kappa": 0.8,
- "mape_train": 1.8865817142353072,
- "mape_test": 0.6648851623463277,
- "mape_uncalibrated": 1.6913598844912319,
+ "gamma": 1.05,
+ "kappa": 0.925,
+ "mape_train": 0.18283572823100785,
+ "mape_test": 0.4344143024418759,
+ "mape_uncalibrated": 0.5091907682775638,
  "rows": [
   {
-   "chip": "2000TF-8GDDR7cs-fast",
+   "chip": "2000TF-8LPDDR5X-slow",
    "k": 4,
-   "wl": "Repo-scale code (ctx x16)",
-   "sim": 1.1100780790673832,
-   "secs": 1.8662617206573486,
-   "analytic": 7.367829474386124,
-   "analytic_queueing": 1.8398249705854912,
-   "bursty_code": true
-  },
-  {
-   "chip": "4500TF-6HBM3e-slow",
-   "k": 8,
-   "wl": "Conv-2023",
-   "sim": 78.67329481508858,
-   "secs": 0.9536316394805908,
-   "analytic": 72.32393779332438,
-   "analytic_queueing": 17.862838191417882,
-   "bursty_code": true
-  },
-  {
-   "chip": "1000TF-12GDDR7cs-fast",
-   "k": 8,
-   "wl": "Reasoning (out x8)",
-   "sim": 6.964732495619634,
-   "secs": 2.082160234451294,
-   "analytic": 6.145705961406622,
-   "analytic_queueing": 122.06031965166476,
-   "bursty_code": false
-  },
-  {
-   "chip": "1000TF-8GDDR7-slow",
-   "k": 8,
-   "wl": "Conv-2023",
-   "sim": 33.79124877095328,
-   "secs": 1.2541289329528809,
-   "analytic": 31.937525073163286,
-   "analytic_queueing": 1.8051061857514472,
-   "bursty_code": false
-  },
-  {
-   "chip": "2000TF-4HBM3e-fast",
-   "k": 4,
-   "wl": "Deep-reasoning (out x20)",
-   "sim": 1.9726944053996358,
-   "secs": 2.17043399810791,
-   "analytic": 2.0564792427928675,
-   "analytic_queueing": 69.69422090613246,
-   "bursty_code": false
-  },
-  {
-   "chip": "3000TF-8LPDDR5X-fast",
-   "k": 8,
-   "wl": "Deep-reasoning (out x20)",
-   "sim": 0.4250036979438879,
-   "secs": 3.0779013633728027,
-   "analytic": 0.4099439546120912,
-   "analytic_queueing": 4.289701063292665,
-   "bursty_code": false
-  },
-  {
-   "chip": "4500TF-6HBM3e-fast",
-   "k": 2,
-   "wl": "Deep-reasoning (out x20)",
-   "sim": 1.5308102950249107,
-   "secs": 1.7533831596374512,
-   "analytic": 1.620321034017346,
-   "analytic_queueing": 12.72842991482573,
-   "bursty_code": false
-  },
-  {
-   "chip": "500TF-12GDDR7cs-slow",
-   "k": 2,
-   "wl": "Long-ctx reasoning (ctx x8, out x8)",
-   "sim": 0.21008705677436643,
-   "secs": 3.177027702331543,
-   "analytic": 0.1103158084494464,
-   "analytic_queueing": 0.5623776898629381,
-   "bursty_code": false
-  },
-  {
-   "chip": "500TF-16GDDR7-fast",
-   "k": 2,
-   "wl": "Reasoning (out x8)",
-   "sim": 0.8276052900100135,
-   "secs": 2.1692910194396973,
-   "analytic": 1.0162593277699628,
-   "analytic_queueing": 3.810714378482591,
-   "bursty_code": false
-  },
-  {
-   "chip": "500TF-8HBM3e-slow",
-   "k": 2,
-   "wl": "Deep-reasoning (out x20)",
-   "sim": 0.39246600773735263,
-   "secs": 2.5350399017333984,
-   "analytic": 0.4478574233481441,
-   "analytic_queueing": 0.6018344770186065,
-   "bursty_code": false
-  },
-  {
-   "chip": "3000TF-8LPDDR5X-fast",
-   "k": 8,
-   "wl": "Code-2023",
-   "sim": 64.85319626077793,
-   "secs": 0.41132283210754395,
-   "analytic": 126.40703463306858,
-   "analytic_queueing": 1.0573428119733785,
-   "bursty_code": false
-  },
-  {
-   "chip": "3000TF-16GDDR7-slow",
-   "k": 2,
-   "wl": "Deep-reasoning (out x20)",
-   "sim": 0.1722778429347734,
-   "secs": 2.342686891555786,
-   "analytic": 0.22297265535180458,
-   "analytic_queueing": 567.941549073357,
-   "bursty_code": true
-  },
-  {
-   "chip": "4500TF-16GDDR7-slow",
-   "k": 2,
    "wl": "Repo-scale code (ctx x16)",
    "sim": 0.0,
-   "secs": 0.11518716812133789,
-   "analytic": 7.264665048858101,
-   "analytic_queueing": 0.28226932961948664,
-   "bursty_code": false
+   "secs": 0.1160736083984375,
+   "analytic": 1.3054186167555035
+  },
+  {
+   "chip": "6000TF-16GDDR7cs-slow",
+   "k": 1,
+   "wl": "Code-2023",
+   "sim": 1.7969022995676067,
+   "secs": 1.2294411659240723,
+   "analytic": 10.544298476254633
+  },
+  {
+   "chip": "6000TF-2HBM3e-fast",
+   "k": 8,
+   "wl": "Conv-2023",
+   "sim": 145.10139985779182,
+   "secs": 0.4872469902038574,
+   "analytic": 122.03835041155185
+  },
+  {
+   "chip": "1000TF-8LPDDR5X-slow",
+   "k": 8,
+   "wl": "Reasoning (out x8)",
+   "sim": 1.7494678934652792,
+   "secs": 1.5192160606384277,
+   "analytic": 1.6960470757966606
+  },
+  {
+   "chip": "1000TF-16GDDR7-fast",
+   "k": 8,
+   "wl": "Conv-2023",
+   "sim": 90.8263092978746,
+   "secs": 0.5789682865142822,
+   "analytic": 69.67753778751282
+  },
+  {
+   "chip": "2000TF-12GDDR7-fast",
+   "k": 4,
+   "wl": "Agentic/RAG (ctx x16)",
+   "sim": 4.075296146691315,
+   "secs": 0.977773904800415,
+   "analytic": 4.093223961590152
+  },
+  {
+   "chip": "4500TF-12GDDR7cs-fast",
+   "k": 8,
+   "wl": "Agentic/RAG (ctx x16)",
+   "sim": 12.440073689791893,
+   "secs": 1.027771234512329,
+   "analytic": 12.550660017392797
+  },
+  {
+   "chip": "6000TF-2HBM3e-fast",
+   "k": 2,
+   "wl": "Reasoning (out x8)",
+   "sim": 0.565410491166562,
+   "secs": 1.1700325012207031,
+   "analytic": 0.5196382082349551
+  },
+  {
+   "chip": "4500TF-16GDDR7cs-slow",
+   "k": 1,
+   "wl": "Conv-2023",
+   "sim": 3.0344511777384455,
+   "secs": 1.7432289123535156,
+   "analytic": 2.249435917415429
+  },
+  {
+   "chip": "500TF-16GDDR7cs-fast",
+   "k": 2,
+   "wl": "Long-ctx reasoning (ctx x8, out x8)",
+   "sim": 0.5625260024270323,
+   "secs": 1.4361846446990967,
+   "analytic": 0.5950187697515075
   },
   {
    "chip": "500TF-16GDDR7cs-slow",
    "k": 2,
-   "wl": "Long-ctx reasoning (ctx x8, out x8)",
-   "sim": 0.39940919687167575,
-   "secs": 2.115823745727539,
-   "analytic": 0.375528521665101,
-   "analytic_queueing": 6.298664577963997,
-   "bursty_code": true
-  },
-  {
-   "chip": "2000TF-4HBM3e-slow",
-   "k": 4,
    "wl": "Reasoning (out x8)",
-   "sim": 5.383613202114259,
-   "secs": 1.9749834537506104,
-   "analytic": 5.1305997960100145,
-   "analytic_queueing": 0.12131371208788748,
-   "bursty_code": false
+   "sim": 1.0074688040503335,
+   "secs": 1.398756742477417,
+   "analytic": 1.0443343317843254
   },
   {
-   "chip": "500TF-12GDDR7cs-fast",
+   "chip": "4500TF-12GDDR7cs-fast",
+   "k": 8,
+   "wl": "Code-2023",
+   "sim": 777.3182933050092,
+   "secs": 0.19017767906188965,
+   "analytic": 567.8681661011823
+  },
+  {
+   "chip": "4500TF-8GDDR7cs-fast",
    "k": 2,
    "wl": "Agentic/RAG (ctx x16)",
-   "sim": 0.9850206468921697,
-   "secs": 2.2459304332733154,
-   "analytic": 0.6001583543813309,
-   "analytic_queueing": 38.598829854421204,
-   "bursty_code": false
+   "sim": 0.06029542755153482,
+   "secs": 1.100257396697998,
+   "analytic": 0.15850858073537286
   },
   {
-   "chip": "2000TF-8GDDR7-fast",
+   "chip": "6000TF-12GDDR7cs-slow",
+   "k": 2,
+   "wl": "Repo-scale code (ctx x16)",
+   "sim": 2.9279637893233597,
+   "secs": 1.1583211421966553,
+   "analytic": 5.777439796052159
+  },
+  {
+   "chip": "500TF-16LPDDR5X-slow",
+   "k": 2,
+   "wl": "Long-ctx reasoning (ctx x8, out x8)",
+   "sim": 0.09203694793684429,
+   "secs": 1.6941704750061035,
+   "analytic": 0.09463749882162238
+  },
+  {
+   "chip": "2000TF-12GDDR7-slow",
+   "k": 4,
+   "wl": "Conv-2023",
+   "sim": 40.14393163774534,
+   "secs": 0.6335129737854004,
+   "analytic": 37.985289439690504
+  },
+  {
+   "chip": "500TF-16GDDR7-slow",
+   "k": 2,
+   "wl": "Agentic/RAG (ctx x16)",
+   "sim": 1.6592494083891294,
+   "secs": 1.1847870349884033,
+   "analytic": 1.6200197523457693
+  },
+  {
+   "chip": "2000TF-16GDDR7cs-fast",
    "k": 8,
    "wl": "Reasoning (out x8)",
-   "sim": 4.025639749260228,
-   "secs": 1.8370707035064697,
-   "analytic": 4.2403207842711845,
-   "analytic_queueing": 1.7152778410660876,
-   "bursty_code": false
+   "sim": 13.125509525104478,
+   "secs": 1.2283172607421875,
+   "analytic": 9.434989841114845
+  },
+  {
+   "chip": "3000TF-16GDDR7cs-fast",
+   "k": 8,
+   "wl": "Long-ctx reasoning (ctx x8, out x8)",
+   "sim": 4.011048218855048,
+   "secs": 1.4851653575897217,
+   "analytic": 3.7000367113736634
+  },
+  {
+   "chip": "3000TF-6HBM3e-slow",
+   "k": 8,
+   "wl": "Reasoning (out x8)",
+   "sim": 9.753254597836957,
+   "secs": 1.1530177593231201,
+   "analytic": 7.859305034251454
+  },
+  {
+   "chip": "2000TF-8HBM3e-fast",
+   "k": 1,
+   "wl": "Reasoning (out x8)",
+   "sim": 2.519902462265651,
+   "secs": 1.2963669300079346,
+   "analytic": 2.4113885791766094
+  },
+  {
+   "chip": "3000TF-16LPDDR5X-fast",
+   "k": 8,
+   "wl": "Long-ctx reasoning (ctx x8, out x8)",
+   "sim": 1.9034270170336032,
+   "secs": 1.497086524963379,
+   "analytic": 1.887446364434951
+  },
+  {
+   "chip": "1000TF-8HBM3e-slow",
+   "k": 4,
+   "wl": "Repo-scale code (ctx x16)",
+   "sim": 108.85279423505737,
+   "secs": 0.32733774185180664,
+   "analytic": 100.33971011913991
+  },
+  {
+   "chip": "1000TF-12GDDR7cs-fast",
+   "k": 2,
+   "wl": "Long-ctx reasoning (ctx x8, out x8)",
+   "sim": 0.3050105111036609,
+   "secs": 1.4978840351104736,
+   "analytic": 0.3192315686987831
+  },
+  {
+   "chip": "3000TF-12GDDR7-slow",
+   "k": 4,
+   "wl": "Repo-scale code (ctx x16)",
+   "sim": 12.360671257466764,
+   "secs": 1.0500221252441406,
+   "analytic": 13.577673976606345
   },
   {
    "chip": "3000TF-4HBM3e-slow",
    "k": 8,
+   "wl": "Repo-scale code (ctx x16)",
+   "sim": 108.23085680579477,
+   "secs": 0.33290839195251465,
+   "analytic": 106.61663896173465
+  },
+  {
+   "chip": "500TF-8HBM3e-slow",
+   "k": 1,
+   "wl": "Agentic/RAG (ctx x16)",
+   "sim": 2.8370712844481965,
+   "secs": 1.1954362392425537,
+   "analytic": 2.9512871514843364
+  },
+  {
+   "chip": "4500TF-12GDDR7cs-slow",
+   "k": 8,
    "wl": "Long-ctx reasoning (ctx x8, out x8)",
-   "sim": 4.128416540710586,
-   "secs": 1.6800971031188965,
-   "analytic": 4.181853452477172,
-   "analytic_queueing": 9.436634004262519,
-   "bursty_code": false
+   "sim": 1.9962472251265548,
+   "secs": 1.3814871311187744,
+   "analytic": 1.9881609476188182
+  },
+  {
+   "chip": "1000TF-6HBM3e-fast",
+   "k": 4,
+   "wl": "Repo-scale code (ctx x16)",
+   "sim": 88.17905029393513,
+   "secs": 0.6869380474090576,
+   "analytic": 90.86173712112534
   },
   {
    "chip": "2000TF-6HBM3e-fast",
    "k": 1,
-   "wl": "Repo-scale code (ctx x16)",
-   "sim": 1.65653336449857,
-   "secs": 1.3197951316833496,
-   "analytic": 13.90396212430224,
-   "analytic_queueing": 3.7417901052255296,
-   "bursty_code": false
+   "wl": "Reasoning (out x8)",
+   "sim": 2.102129042256378,
+   "secs": 1.0372886657714844,
+   "analytic": 2.055558535281282
   },
   {
-   "chip": "2000TF-16GDDR7-slow",
+   "chip": "4500TF-4HBM3e-fast",
    "k": 8,
-   "wl": "Deep-reasoning (out x20)",
-   "sim": 1.4721354247317155,
-   "secs": 2.1932969093322754,
-   "analytic": 1.5801197892398453,
-   "analytic_queueing": 7.863956019614841,
-   "bursty_code": false
+   "wl": "Long-ctx reasoning (ctx x8, out x8)",
+   "sim": 8.152815563644808,
+   "secs": 1.266404151916504,
+   "analytic": 6.959907479621367
   },
   {
-   "chip": "3000TF-8HBM3e-fast",
-   "k": 8,
-   "wl": "Repo-scale code (ctx x16)",
-   "sim": 173.32987423734545,
-   "secs": 0.35308313369750977,
-   "analytic": 271.3754587857943,
-   "analytic_queueing": 2.4356699965938926,
-   "bursty_code": false
-  },
-  {
-   "chip": "1000TF-4HBM3e-fast",
-   "k": 4,
-   "wl": "Repo-scale code (ctx x16)",
-   "sim": 13.024304676459852,
-   "secs": 1.0279340744018555,
-   "analytic": 63.780172948536375,
-   "analytic_queueing": 1.922311560326027,
-   "bursty_code": false
-  },
-  {
-   "chip": "1000TF-8HBM3e-slow",
+   "chip": "3000TF-16GDDR7cs-fast",
    "k": 2,
-   "wl": "Repo-scale code (ctx x16)",
-   "sim": 10.008875547159795,
-   "secs": 1.1615386009216309,
-   "analytic": 52.01007240926983,
-   "analytic_queueing": 101.75408197206455,
-   "bursty_code": true
+   "wl": "Long-ctx reasoning (ctx x8, out x8)",
+   "sim": 0.5625260024270323,
+   "secs": 1.4858837127685547,
+   "analytic": 0.603498507168989
   },
   {
-   "chip": "2000TF-16LPDDR5X-slow",
-   "k": 4,
-   "wl": "Agentic/RAG (ctx x16)",
-   "sim": 2.1461418165076958,
-   "secs": 2.0938849449157715,
-   "analytic": 2.040387063606994,
-   "analytic_queueing": 0.34638407131732163,
-   "bursty_code": false
-  },
-  {
-   "chip": "2000TF-12GDDR7cs-fast",
+   "chip": "500TF-2HBM3e-slow",
    "k": 8,
-   "wl": "Repo-scale code (ctx x16)",
-   "sim": 8.434388757780765,
-   "secs": 1.2499792575836182,
-   "analytic": 46.44714151385901,
-   "analytic_queueing": 14.653875276028373,
-   "bursty_code": true
-  },
-  {
-   "chip": "500TF-8HBM3e-fast",
-   "k": 1,
-   "wl": "Deep-reasoning (out x20)",
-   "sim": 0.15719398087027056,
-   "secs": 2.7042455673217773,
-   "analytic": 0.17750347411823175,
-   "analytic_queueing": 109.52945412690087,
-   "bursty_code": true
-  },
-  {
-   "chip": "4500TF-6HBM3e-fast",
-   "k": 1,
    "wl": "Agentic/RAG (ctx x16)",
-   "sim": 2.771303214409291,
-   "secs": 2.1144378185272217,
-   "analytic": 3.405431017100004,
-   "analytic_queueing": 3.0442515331726265,
-   "bursty_code": false
+   "sim": 10.97430797077482,
+   "secs": 1.0245542526245117,
+   "analytic": 10.822645448456344
+  },
+  {
+   "chip": "1000TF-12GDDR7-slow",
+   "k": 4,
+   "wl": "Reasoning (out x8)",
+   "sim": 2.6991236901746607,
+   "secs": 1.134960412979126,
+   "analytic": 2.456406264366667
+  },
+  {
+   "chip": "6000TF-4HBM3e-fast",
+   "k": 8,
+   "wl": "Conv-2023",
+   "sim": 225.00570299553553,
+   "secs": 0.4682745933532715,
+   "analytic": 179.24373791284722
   },
   {
    "chip": "3000TF-8LPDDR5X-slow",
    "k": 8,
-   "wl": "Long-ctx reasoning (ctx x8, out x8)",
-   "sim": 0.3867124807482835,
-   "secs": 2.7089853286743164,
-   "analytic": 0.28999966905048696,
-   "analytic_queueing": 2.033400005441374,
-   "bursty_code": false
-  },
-  {
-   "chip": "500TF-16LPDDR5X-slow",
-   "k": 4,
    "wl": "Repo-scale code (ctx x16)",
-   "sim": 1.28537548280941,
-   "secs": 1.3646655082702637,
-   "analytic": 8.468483440383022,
-   "analytic_queueing": 91.93305416701946,
-   "bursty_code": true
-  },
-  {
-   "chip": "3000TF-8GDDR7cs-fast",
-   "k": 8,
-   "wl": "Repo-scale code (ctx x16)",
-   "sim": 4.211134954979472,
-   "secs": 1.3144123554229736,
-   "analytic": 26.564945613139233,
-   "analytic_queueing": 2.0876441790160407,
-   "bursty_code": false
-  },
-  {
-   "chip": "4500TF-8GDDR7cs-slow",
-   "k": 2,
-   "wl": "Deep-reasoning (out x20)",
-   "sim": 0.0,
-   "secs": 0.15538549423217773,
-   "analytic": 0.0,
-   "analytic_queueing": 7.035813158087013,
-   "bursty_code": false
-  },
-  {
-   "chip": "3000TF-4HBM3e-slow",
-   "k": 2,
-   "wl": "Long-ctx reasoning (ctx x8, out x8)",
-   "sim": 0.9776091229334939,
-   "secs": 2.6070210933685303,
-   "analytic": 1.113066647896727,
-   "analytic_queueing": 0.63115029217068,
-   "bursty_code": false
-  },
-  {
-   "chip": "500TF-2HBM3e-fast",
-   "k": 8,
-   "wl": "Agentic/RAG (ctx x16)",
-   "sim": 11.608948648523924,
-   "secs": 2.059138536453247,
-   "analytic": 13.242309652598632,
-   "analytic_queueing": 11.07745555183799,
-   "bursty_code": false
-  },
-  {
-   "chip": "1000TF-8HBM3e-slow",
-   "k": 4,
-   "wl": "Reasoning (out x8)",
-   "sim": 3.947693051684894,
-   "secs": 2.679255962371826,
-   "analytic": 3.994162175927213,
-   "analytic_queueing": 2.556298886769526,
-   "bursty_code": false
-  },
-  {
-   "chip": "4500TF-8HBM3e-fast",
-   "k": 8,
-   "wl": "Conv-2023",
-   "sim": 334.07492319530814,
-   "secs": 0.9673469066619873,
-   "analytic": 189.77002904412444,
-   "analytic_queueing": 179.25413018141182,
-   "bursty_code": false
-  },
-  {
-   "chip": "3000TF-8HBM3e-fast",
-   "k": 8,
-   "wl": "Repo-scale code (ctx x16)",
-   "sim": 173.32987423734545,
-   "secs": 0.561927080154419,
-   "analytic": 271.3754587857943,
-   "analytic_queueing": 11.191650289877018,
-   "bursty_code": true
+   "sim": 6.018867412346952,
+   "secs": 1.1339035034179688,
+   "analytic": 10.515484295312532
   }
- ],
- "summary": {
-  "analytic": {
-   "conv-based (median,mean,n)": [
-    0.14069844337561,
-    0.8437920043866235,
-    25
-   ],
-   "code-based": [
-    0.5656588916356813,
-    2.339826693370358,
-    9
-   ]
-  },
-  "analytic_queueing": {
-   "conv-based (median,mean,n)": [
-    0.9836963654386169,
-    5.2154323919698005,
-    25
-   ],
-   "code-based": [
-    9.166384974278072,
-    454.3334669336156,
-    9
-   ]
-  }
- },
- "note": "Simulator is ground truth used for all DSE results; closed-form models shown only to motivate trace-driven simulation."
+ ]
 }

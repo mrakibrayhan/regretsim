@@ -1,0 +1,7 @@
+workload,best_prefill,best_decode
+Code-2023,9000TF-4HBM3e-slow,9000TF-8HBM3e-fast
+Conv-2023,9000TF-4HBM3e-slow,7500TF-8HBM3e-slow
+Reasoning (out x8),9000TF-4HBM3e-slow,7500TF-8HBM3e-fast
+Agentic/RAG (ctx x16),9000TF-12GDDR7-fast,3000TF-8HBM3e-fast
+Repo-scale code (ctx x16),9000TF-8GDDR7-fast,2000TF-8HBM3e-fast
+"Long-ctx reasoning (ctx x8, out x8)",9000TF-12GDDR7cs-slow,3000TF-8HBM3e-fast

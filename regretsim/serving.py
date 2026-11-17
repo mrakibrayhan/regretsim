@@ -18,6 +18,7 @@ TPOT_SLO = 0.050          # P90 time-per-output-token <= 50 ms
 P = 90
 WARMUP = 0.10
 TP_OPTIONS = (1, 2, 4, 8)
+SAMPLE_OFFSET = 0         # start index in the (cyclic) trace stream; varied in experiments/08
 
 # analytical decode model calibration constants (fitted in experiments/02_validate_sim.py)
 GAMMA = 1.10              # P90 TPOT / mean iteration time at capacity
@@ -75,7 +76,7 @@ def sim_prefill(model, chip, k, arr, lens):
 
 
 def prefill_metric(model, chip, k, wl, rate, n=1500):
-    arr, c, _ = wl.sample(n, rate)
+    arr, c, _ = wl.sample(n, rate, offset=SAMPLE_OFFSET)
     ttft, E = sim_prefill(model, chip, k, arr, c)
     tab = _ref_table(model, wl.base, wl.ctx_scale)
     ref = np.array([tab[x] for x in c])
@@ -190,7 +191,7 @@ def sim_decode(model, chip, k, arr, ctx, out, bmax=DECODE_BMAX):
 
 
 def decode_metric_sim(model, chip, k, wl, rate, n=1500):
-    arr, c, o = wl.sample(n, rate)
+    arr, c, o = wl.sample(n, rate, offset=SAMPLE_OFFSET)
     r = sim_decode(model, chip, k, arr, c, o)
     if r is None:
         return np.inf, np.inf

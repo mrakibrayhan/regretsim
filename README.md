@@ -57,7 +57,19 @@ python3 experiments/05_drift_and_sensitivity.py drift    # 5x5 context x output 
 ```
 Outputs: `results/05_*.json`, `results/05_drift_regret.csv`
 
-### Step 6: Figures (about 10 s)
+### Step 6: Power-cap variant: 2.5 kW cap, adds 7500/9000 TFLOP/s designs (about 4 min)
+```bash
+python3 experiments/07_powercap.py
+```
+Output: `results/07_cap2500_*.csv`, `results/07_cap2500_summary.json`
+
+### Step 7: Variance over 3 trace windows (about 4 min)
+```bash
+python3 experiments/08_variance.py
+```
+Output: `results/08_var_offset*.csv`, `results/08_variance_summary.json`
+
+### Step 8: Figures (about 10 s)
 ```bash
 python3 experiments/06_figures.py
 ```
@@ -80,7 +92,6 @@ Output: `figures/fig1..fig7*.png`
 All constants sit at the top of `hardware.py`, `model.py` and `serving.py`:
 memory prices, energy per bit, η, SLOs (P90 TTFT ≤ 3× H100 unloaded, P90 TPOT ≤ 50 ms),
 fleet rate (1000 req/s), and KV reservation (ctx + out).
-
 ## Data and license
 - `data/` contains the Azure LLM Inference Trace 2023 from Microsoft's
   [Azure Public Dataset](https://github.com/Azure/AzurePublicDataset); see that repository for its license and citation.
