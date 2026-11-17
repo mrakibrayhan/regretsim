@@ -1,5 +1,7 @@
 # RegretSim: Specialization Regret in Phase-Disaggregated LLM Inference Hardware
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24300666.svg)](https://doi.org/10.5281/zenodo.24300666)
+
 Trace-driven simulation study. How much does a prefill/decode-specialized
 accelerator fleet lose when LLM workloads drift (reasoning-length outputs,
 agentic-length prompts), and how can hardware be designed to hedge against that?
