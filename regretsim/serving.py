@@ -18,6 +18,7 @@ TPOT_SLO = 0.050          # P90 time-per-output-token <= 50 ms
 P = 90
 WARMUP = 0.10
 TP_OPTIONS = (1, 2, 4, 8)
+PREFIX_HIT = 0.0          # prefix-cache hit fraction on long-context futures (ctx_scale > 1); experiments/09
 SAMPLE_OFFSET = 0         # start index in the (cyclic) trace stream; varied in experiments/08
 
 # analytical decode model calibration constants (fitted in experiments/02_validate_sim.py)
@@ -32,24 +33,34 @@ def kv_xfer(model, k, lens):
     return lens * model.kv_tok / (k * SCALEOUT_BW)
 
 
-def ref_ttft(model, lens):
-    """Unloaded single-request TTFT on the reference instance (H100-like, TP=2)."""
+def cached_tokens(wl, lens):
+    """Prefix-cache hits (tokens) per request: applied only to long-context futures."""
+    if PREFIX_HIT <= 0 or wl.ctx_scale <= 1:
+        return np.zeros_like(lens, dtype=float)
+    return np.floor(lens * PREFIX_HIT)
+
+
+def ref_ttft(model, lens, hit=0.0):
+    """Unloaded single-request TTFT on the reference instance (H100-like, TP=2),
+    with the same prefix-cache hit fraction as the workload being evaluated."""
     out = np.empty(len(lens))
     for i, s in enumerate(lens):
-        out[i] = prefill_batch(model, H100, 2, [s])[0]
+        out[i] = prefill_batch(model, H100, 2, [s], [np.floor(s * hit)])[0]
     return out + kv_xfer(model, 2, lens)
 
 
 @lru_cache(None)
-def _ref_table(model, base, ctx_scale):
+def _ref_table(model, base, ctx_scale, hit=0.0):
     from .workloads import Workload
     c, _ = Workload(base, ctx_scale, 1).lengths()
     u = np.unique(c)
-    return dict(zip(u, ref_ttft(model, u)))
+    return dict(zip(u, ref_ttft(model, u, hit if ctx_scale > 1 else 0.0)))
 
 
-def sim_prefill(model, chip, k, arr, lens):
+def sim_prefill(model, chip, k, arr, lens, cached=None):
     n = len(arr)
+    cached = np.zeros_like(lens, dtype=float) if cached is None else cached
+    new = lens - cached
     ttft = np.empty(n)
     E = 0.0
     busy = 0.0
@@ -62,10 +73,10 @@ def sim_prefill(model, chip, k, arr, lens):
         t = max(t, arr[i])
         j = i
         tok = 0.0
-        while j < n and arr[j] <= t and (tok + lens[j] <= PREFILL_TOKEN_BUDGET or j == i):
-            tok += lens[j]
+        while j < n and arr[j] <= t and (tok + new[j] <= PREFILL_TOKEN_BUDGET or j == i):
+            tok += new[j]
             j += 1
-        dt, e = prefill_batch(model, chip, k, lens[i:j])
+        dt, e = prefill_batch(model, chip, k, lens[i:j], cached[i:j])
         t += dt
         busy += dt
         E += e
@@ -77,8 +88,8 @@ def sim_prefill(model, chip, k, arr, lens):
 
 def prefill_metric(model, chip, k, wl, rate, n=1500):
     arr, c, _ = wl.sample(n, rate, offset=SAMPLE_OFFSET)
-    ttft, E = sim_prefill(model, chip, k, arr, c)
-    tab = _ref_table(model, wl.base, wl.ctx_scale)
+    ttft, E = sim_prefill(model, chip, k, arr, c, cached_tokens(wl, c))
+    tab = _ref_table(model, wl.base, wl.ctx_scale, PREFIX_HIT)
     ref = np.array([tab[x] for x in c])
     w = int(WARMUP * n)
     x = np.nan_to_num((ttft / ref)[w:], nan=1e9, posinf=1e9)
@@ -104,7 +115,8 @@ def _bisect_rate(ok, lo, hi, iters=7):
 
 def prefill_capacity(model, chip, k, wl, n=1500):
     c, _ = wl.lengths()
-    t1 = prefill_batch(model, chip, k, [np.mean(c)])[0]
+    cm = np.mean(c)
+    t1 = prefill_batch(model, chip, k, [cm], cached_tokens(wl, np.array([cm])))[0]
     guess = 1.0 / t1
     cache = {}
 

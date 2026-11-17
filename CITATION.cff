@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "RegretSim: Specialization Regret in Phase-Disaggregated LLM Inference Hardware"
+type: software
+authors:
+  - family-names: "Rayhan"
+    given-names: "Md. Rakib"
+    affiliation: "North South University"
+    orcid: "https://orcid.org/0009-0008-3995-0042"
+  - family-names: "Nazmee"
+    given-names: "Jeciah"
+    affiliation: "North South University"
+license: MIT
+repository-code: "https://github.com/mrakibrayhan/regretsim"
+version: "1.0.0"
+date-released: "2026-11-17"
+keywords:
+  - computer architecture
+  - LLM inference
+  - hardware accelerators
+  - design space exploration
+  - simulation

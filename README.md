@@ -4,7 +4,7 @@ Trace-driven simulation study. How much does a prefill/decode-specialized
 accelerator fleet lose when LLM workloads drift (reasoning-length outputs,
 agentic-length prompts), and how can hardware be designed to hedge against that?
 
-Author: Md. Rakib Rayhan (North South University)
+Authors: Md. Rakib Rayhan and Jeciah Nazmee (North South University)
 
 ---
 
@@ -69,7 +69,13 @@ python3 experiments/08_variance.py
 ```
 Output: `results/08_var_offset*.csv`, `results/08_variance_summary.json`
 
-### Step 8: Figures (about 10 s)
+### Step 8: Prefix-cache sensitivity on long-context futures, hit rates 50% and 90% (about 2 min)
+```bash
+python3 experiments/09_prefix_cache.py
+```
+Output: `results/09_prefix_h*_prefill.csv`, `results/09_prefix_summary.json`
+
+### Step 9: Figures (about 10 s)
 ```bash
 python3 experiments/06_figures.py
 ```
@@ -92,6 +98,7 @@ Output: `figures/fig1..fig7*.png`
 All constants sit at the top of `hardware.py`, `model.py` and `serving.py`:
 memory prices, energy per bit, η, SLOs (P90 TTFT ≤ 3× H100 unloaded, P90 TPOT ≤ 50 ms),
 fleet rate (1000 req/s), and KV reservation (ctx + out).
+
 ## Data and license
 - `data/` contains the Azure LLM Inference Trace 2023 from Microsoft's
   [Azure Public Dataset](https://github.com/Azure/AzurePublicDataset); see that repository for its license and citation.

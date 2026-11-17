@@ -71,21 +71,30 @@ def _comm(model, chip, k, T_new):
     return t, bytes_
 
 
-def prefill_batch(model, chip, k, lens):
-    """Time (s) and dynamic energy (J) for one prefill batch of prompt lengths `lens`."""
+def prefill_batch(model, chip, k, lens, cached=None):
+    """Time (s) and dynamic energy (J) for one prefill batch of prompt lengths
+    `lens`.  `cached` (optional, same shape) is the number of prompt tokens per
+    request whose KV is already cached (prefix-cache hit): only the remaining
+    tokens are computed, but they still attend to the cached prefix, whose KV is
+    read from memory."""
     lens = np.asarray(lens, dtype=float)
-    T = lens.sum()
+    cached = np.zeros_like(lens) if cached is None else np.asarray(cached, dtype=float)
+    new = lens - cached
+    T = new.sum()
     n = len(lens)
     peak = chip.tflops * 1e12
     bw = chip.bw * chip.mem_eff
-    # Linear layers (+ LM head for last token of each sequence)
+    # Linear layers on the new tokens (+ LM head for last token of each sequence)
     fl_lin = (2 * T * model.p_layer * model.L + 2 * n * model.d * model.V) / k
     by_lin = (model.w_bytes + T * model.L * model.act_tok_layer) / k
     eta = chip.eta_c * T / (T + M_HALF)
     t_lin = max(fl_lin / (peak * eta), by_lin / bw)
-    # Causal attention
-    fl_att = (2 * (lens ** 2).sum() * model.nh * model.hd * model.L) / k
-    by_att = (T * model.kv_tok + T * model.L * model.nh * model.hd * 2 * 2) / k
+    # Causal attention: new tokens attend to the cached prefix and causally to each other
+    # (with cached = 0 this equals 2 * s^2 * nh * hd * L)
+    pairs = (new * cached + new ** 2 / 2).sum()
+    fl_att = (4 * pairs * model.nh * model.hd * model.L) / k
+    by_att = (T * model.kv_tok + cached.sum() * model.kv_tok
+              + T * model.L * model.nh * model.hd * 2 * 2) / k
     t_att = max(fl_att / (peak * ETA_ATTN_PREFILL), by_att / bw)
     t_com, by_com = _comm(model, chip, k, T)
     t = t_lin + t_att + t_com + T_FIXED

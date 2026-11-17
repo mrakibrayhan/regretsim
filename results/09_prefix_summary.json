@@ -1,0 +1,187 @@
+{
+ "hits": [
+  0.5,
+  0.9
+ ],
+ "long_context_prefill_sets": [
+  "code x16",
+  "conv x8",
+  "conv x16"
+ ],
+ "variants": {
+  "0.5": {
+   "reoptimized": {
+    "GPU-H100": {
+     "max": 1.4184357300420363,
+     "mean": 1.0972838106845968,
+     "p": "H100-like",
+     "d": "H100-like"
+    },
+    "GPU-H200": {
+     "max": 2.612010025012883,
+     "mean": 1.632763520845115,
+     "p": "H200-like",
+     "d": "H200-like"
+    },
+    "GPU-B200": {
+     "max": 1.0369292653239435,
+     "mean": 0.5201153516360026,
+     "p": "B200-like",
+     "d": "B200-like"
+    },
+    "Unified-today": {
+     "max": 0.886611942639481,
+     "mean": 0.4513454570098203,
+     "p": "6000TF-4HBM3e-fast",
+     "d": "6000TF-4HBM3e-fast"
+    },
+    "Specialized-today": {
+     "max": 0.055519636729238764,
+     "mean": 0.02431190688634392,
+     "p": "6000TF-16GDDR7-fast",
+     "d": "6000TF-8HBM3e-fast"
+    },
+    "Robust-unified": {
+     "max": 0.4710809095968276,
+     "mean": 0.30982993816580634,
+     "p": "6000TF-6HBM3e-fast",
+     "d": "6000TF-6HBM3e-fast"
+    },
+    "Robust-specialized": {
+     "max": 0.04421640812450667,
+     "mean": 0.02511451859294141,
+     "p": "6000TF-16GDDR7-fast",
+     "d": "4500TF-8HBM3e-fast"
+    }
+   },
+   "main_designs_fixed_max": {
+    "GPU-H100": 1.4184357300420363,
+    "GPU-H200": 2.612010025012883,
+    "GPU-B200": 1.0369292653239435,
+    "Unified-today": 0.886611942639481,
+    "Specialized-today": 0.055519636729238764,
+    "Robust-unified": 0.4710809095968276,
+    "Robust-specialized": 0.04421640812450667
+   },
+   "best": {
+    "Code-2023": {
+     "prefill": "6000TF-4HBM3e-slow",
+     "decode": "6000TF-8HBM3e-fast",
+     "decode_share": 0.00796356308255297
+    },
+    "Conv-2023": {
+     "prefill": "6000TF-16GDDR7-fast",
+     "decode": "6000TF-8HBM3e-slow",
+     "decode_share": 0.1320805638338766
+    },
+    "Reasoning (out x8)": {
+     "prefill": "6000TF-16GDDR7-fast",
+     "decode": "6000TF-8HBM3e-fast",
+     "decode_share": 0.6030593257305983
+    },
+    "Agentic/RAG (ctx x16)": {
+     "prefill": "6000TF-8GDDR7-fast",
+     "decode": "3000TF-8HBM3e-fast",
+     "decode_share": 0.08919061580992046
+    },
+    "Repo-scale code (ctx x16)": {
+     "prefill": "6000TF-8GDDR7-fast",
+     "decode": "2000TF-8HBM3e-fast",
+     "decode_share": 0.011497536249259999
+    },
+    "Long-ctx reasoning (ctx x8, out x8)": {
+     "prefill": "6000TF-12GDDR7-fast",
+     "decode": "3000TF-8HBM3e-fast",
+     "decode_share": 0.5119391974598941
+    }
+   }
+  },
+  "0.9": {
+   "reoptimized": {
+    "GPU-H100": {
+     "max": 1.196124145578802,
+     "mean": 0.968197276721956,
+     "p": "H100-like",
+     "d": "H100-like"
+    },
+    "GPU-H200": {
+     "max": 1.8769155544917364,
+     "mean": 1.2967465868907484,
+     "p": "H200-like",
+     "d": "H200-like"
+    },
+    "GPU-B200": {
+     "max": 0.6667406185291238,
+     "mean": 0.40170336251010746,
+     "p": "B200-like",
+     "d": "B200-like"
+    },
+    "Unified-today": {
+     "max": 1.358474323754257,
+     "mean": 0.5520647173851797,
+     "p": "6000TF-4HBM3e-fast",
+     "d": "6000TF-4HBM3e-fast"
+    },
+    "Specialized-today": {
+     "max": 0.09046373895605342,
+     "mean": 0.03467460080872131,
+     "p": "6000TF-16GDDR7-fast",
+     "d": "6000TF-8HBM3e-fast"
+    },
+    "Robust-unified": {
+     "max": 0.38494818043442325,
+     "mean": 0.26191205914412885,
+     "p": "6000TF-8HBM3e-fast",
+     "d": "6000TF-8HBM3e-fast"
+    },
+    "Robust-specialized": {
+     "max": 0.05559533405732675,
+     "mean": 0.02748887966715278,
+     "p": "6000TF-16GDDR7-fast",
+     "d": "4500TF-8HBM3e-fast"
+    }
+   },
+   "main_designs_fixed_max": {
+    "GPU-H100": 1.196124145578802,
+    "GPU-H200": 1.8769155544917364,
+    "GPU-B200": 0.6667406185291238,
+    "Unified-today": 1.358474323754257,
+    "Specialized-today": 0.09046373895605342,
+    "Robust-unified": 0.4547205087853017,
+    "Robust-specialized": 0.05559533405732675
+   },
+   "best": {
+    "Code-2023": {
+     "prefill": "6000TF-4HBM3e-slow",
+     "decode": "6000TF-8HBM3e-fast",
+     "decode_share": 0.00796356308255297
+    },
+    "Conv-2023": {
+     "prefill": "6000TF-16GDDR7-fast",
+     "decode": "6000TF-8HBM3e-slow",
+     "decode_share": 0.1320805638338766
+    },
+    "Reasoning (out x8)": {
+     "prefill": "6000TF-16GDDR7-fast",
+     "decode": "6000TF-8HBM3e-fast",
+     "decode_share": 0.6030593257305983
+    },
+    "Agentic/RAG (ctx x16)": {
+     "prefill": "6000TF-8GDDR7-fast",
+     "decode": "3000TF-8HBM3e-fast",
+     "decode_share": 0.2751368316062378
+    },
+    "Repo-scale code (ctx x16)": {
+     "prefill": "6000TF-12GDDR7-fast",
+     "decode": "2000TF-8HBM3e-fast",
+     "decode_share": 0.037163106925086425
+    },
+    "Long-ctx reasoning (ctx x8, out x8)": {
+     "prefill": "6000TF-12GDDR7-fast",
+     "decode": "3000TF-8HBM3e-fast",
+     "decode_share": 0.8355789019671586
+    }
+   }
+  }
+ }
+}
